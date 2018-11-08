@@ -151,6 +151,3 @@ Feel free to ask questions, find bugs(:D) or anything else.
 ## License
 
 This project is licensed under the MIT License
-
-
-Feel free to ask questions or anything else.
