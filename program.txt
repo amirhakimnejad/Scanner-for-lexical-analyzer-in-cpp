@@ -1,0 +1,14 @@
+int x ;
+x = x + 5 ;
+/*
+    Multi line Comment
+*/
+
+// Single line Comment
+for(int i = 0, i <= 4; i++){
+    x += i;
+}
+    x++;
+
+54dsa
+_sda = "gdsdg";
