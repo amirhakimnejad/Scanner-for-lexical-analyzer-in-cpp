@@ -1,3 +1,5 @@
+// This is the c test file
+
 int x ;
 x = x + 5 ;
 /*
