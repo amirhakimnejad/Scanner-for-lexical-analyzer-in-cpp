@@ -2,7 +2,7 @@
 A simple c++ program that takes a file as input and after tokenizing the file it finds what each token name is(identifier, keyword, separator, operator, literal or comment).
 
 
-To know what a lexical analyzer is click [here](https://en.wikipedia.org/wiki/Lexical_analysis)
+To see what a compiler's lexical analyzer is click [here](https://en.wikipedia.org/wiki/Lexical_analysis)
 ### Prerequisites
 
 You need c++11 or higher to run the code.
@@ -151,6 +151,3 @@ Feel free to ask questions, find bugs(:D) or anything else.
 ## License
 
 This project is licensed under the MIT License
-
-
-Feel free to ask questions or anything else.
