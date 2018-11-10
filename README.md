@@ -101,7 +101,7 @@ unknown
 As you can see there are few keywords or statements in my program. You can manually add any other values to their vector.
 ```c++
 const vector<std::string> keywords{"int", "float", "auto", "double", "do", "switch", "return"};
-const vector<std::string> keywords{"for", "while"};
+const vector<std::string> statements{"for", "while"};
 const vector<std::string> operators{"*", "+", "-", "/", "=", "-=", "*=", "+=", "/=", "++", "--", "=="};
 const vector<std::string> Separators{"{", "}", ",", "(", ")", ";"};
 ```

@@ -63,9 +63,9 @@ bool isKeyword(const std::string &str)
 
 bool isStatement(const std::string &str)
 {
-  const vector<std::string> keywords{"for", "while"};
-  for(const auto& keyword : keywords)
-    if (keyword == str)
+  const vector<std::string> statements{"for", "while"};
+  for(const auto& statement : statements)
+    if (statement == str)
       return true;
 
   return false;
