@@ -96,31 +96,24 @@ bool isNotLegal(const std::string &str)
   return str == " " || str == "\n";
 }
 
-void printRoleOfToken(const vector<std::string>& tokens)
+void printRoleOfToken(const std::string& token)
 {
-  cout << "[";
-  for(const auto& token : tokens)
-  {
-    if(isOperator(token))
-      cout << "(operator, " << token << ")";
-    else if(isSeparator(token))
-      cout << "(separator, " << token << ")";
-    else if(isKeyword(token))
-      cout << "(keyword, " << token << ")";
-    else if(isStatement(token))
-      cout << "(statement, " << token << ")";
-    else if(isLiteral(token))
-      cout << "(literal, " << token << ")";
-    else if(isID(token))
-      cout << "(identifier, " << token << ")";
-    else if(isComment(token))
-      cout << "(comment, " << token << ")";
-    else
-      cout << "unknown\n";
-
-    cout << ", \n";
-  }
-  cout << "]\n";
+  if(isOperator(token))
+    cout << "(operator, " << token << ")";
+  else if(isSeparator(token))
+    cout << "(separator, " << token << ")";
+  else if(isKeyword(token))
+    cout << "(keyword, " << token << ")";
+  else if(isStatement(token))
+    cout << "(statement, " << token << ")";
+  else if(isLiteral(token))
+    cout << "(literal, " << token << ")";
+  else if(isID(token))
+    cout << "(identifier, " << token << ")";
+  else if(isComment(token))
+    cout << "(comment, " << token << ")";
+  else
+    throw std::runtime_error(token);
 }
 
 void lexicalAnalyze(const std::string &nameOfFile)
@@ -128,7 +121,6 @@ void lexicalAnalyze(const std::string &nameOfFile)
   char ch;
   std::string buffer;
   std::fstream file(nameOfFile, std::fstream::in);
-  vector<std::string> tokenized;
 
   if (!file.is_open())
   {
@@ -162,7 +154,7 @@ void lexicalAnalyze(const std::string &nameOfFile)
       file >> ch;
       if(ch == EOF)
       {
-        tokenized.push_back(comm);
+        printRoleOfToken(comm);
         break;
       }
 
@@ -178,7 +170,7 @@ void lexicalAnalyze(const std::string &nameOfFile)
       }
       if(miltiCm || singleCm)
       {
-        tokenized.push_back(comm);
+        printRoleOfToken(comm);
         continue;
       }
     }
@@ -187,7 +179,7 @@ void lexicalAnalyze(const std::string &nameOfFile)
     {
       if(!buffer.empty())
       {
-        tokenized.push_back(buffer);
+        printRoleOfToken(buffer);
         buffer = "";
       }
       continue;
@@ -197,7 +189,7 @@ void lexicalAnalyze(const std::string &nameOfFile)
     {
       if(!buffer.empty() && !isOperator(buffer))
       {
-        tokenized.push_back(buffer);
+        printRoleOfToken(buffer);
         buffer = "";
       }
     }
@@ -206,17 +198,16 @@ void lexicalAnalyze(const std::string &nameOfFile)
     {
       if(!buffer.empty())
       {
-        tokenized.push_back(buffer);
+        printRoleOfToken(buffer);
         buffer = "";
       }
       if(isSeparator(std::string(1, ch)))
       {
-        tokenized.emplace_back(1, ch);
+        printRoleOfToken(std::string(1, ch));
         continue;
       }
     }
     buffer += ch;
   }
   file.close();
-  printRoleOfToken(tokenized);
 }
