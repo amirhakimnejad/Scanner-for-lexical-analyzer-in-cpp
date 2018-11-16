@@ -73,7 +73,7 @@ bool isStatement(const std::string &str)
 
 bool isOperator(const std::string &str)
 {
-  const vector<std::string> operators{"*", "+", "-", "/", "=", "-=", "*=", "+=", "/=", "++", "--", "=="};
+  const vector<std::string> operators{"<", ">", "<=", ">=", "*", "+", "-", "/", "=", "-=", "*=", "+=", "/=", "++", "--", "=="};
   for(const auto& op : operators)
     if (op == str)
       return true;
