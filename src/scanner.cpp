@@ -113,7 +113,7 @@ void printRoleOfToken(const std::string& token)
   else if(isComment(token))
     cout << "(comment, " << token << ")";
   else
-    throw std::runtime_error(token);
+    throw std::runtime_error("Invalid token: " + token);
 }
 
 void lexicalAnalyze(const std::string &nameOfFile)
